@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useAuth0 } from '../auth-wrapper.js';
+import Tooltip from "react-power-tooltip";
 
 import SampleLogo from './Icons/SampleLogo.js';
 import logo from '../ASSETS/logo.svg';
@@ -12,8 +13,10 @@ import '../SASS/TopBar.scss';
 
 const TopBar = ({ activeUser, searchData, getSearch }) => {
   const { logout } = useAuth0();
- 
+
   const [light, setLight] = useState(false);
+  const [tooltip, setTooltip] = useState(false);
+
 
   // look at mixins.scss and palette.scss for more info on this theming function
   const setLightMode = () => {
@@ -56,13 +59,22 @@ const TopBar = ({ activeUser, searchData, getSearch }) => {
             <Link to={`/profile/${activeUser.id}/${activeUser.username}`}>
               <p>{activeUser.username}</p>
             </Link>
-            <Link className="settings-logout" onClick={() => logout()} to={`/profile/${activeUser.id}/${activeUser.username}`}>
+            <Tooltip 
+  show={true}
+  arrowAlign="center"
+  position="bottom center"
+  lineSeparated
+>
+  <span onClick={() => logout()} to={`/profile/${activeUser.id}/${activeUser.username}`}>Log Out</span>
+</Tooltip>
+            {/* <Link className="settings-logout" onClick={() => logout()} to={`/profile/${activeUser.id}/${activeUser.username}`}> */}
+            
               <img
                 className="profile-pic-thumb"
                 src={activeUser.avatar}
                 alt="user avatar"
               />
-            </Link>
+           
             <div className="dark-mode-switch" onClick={setLightMode}>
               {light ? (
                 <img alt="sun-mode switch" src={sunMode} />
