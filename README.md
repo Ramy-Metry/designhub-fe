@@ -1,4 +1,4 @@
-# DesignHub1
+# DesignHub
 
 - A seamless collaborative design asset platform for designers by designers
 
