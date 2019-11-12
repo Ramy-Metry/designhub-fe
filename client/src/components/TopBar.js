@@ -72,8 +72,10 @@ const TopBar = ({ activeUser, searchData, getSearch }) => {
                       show={show}
                       arrowAlign="center"
                       position="bottom"
-                      moveLeft = "-900px"
                       lineSeparated
+                      backgroundColor='#212229'
+                      hoverColor='#212229'
+                      border= '1px solid #ffffff'
                     >
                           <span onClick={() => logout()} to={`/profile/${activeUser.id}/${activeUser.username}`}>Log Out</span>
                           <span onClick={() => logout()} to={`/profile/${activeUser.id}/${activeUser.username}`}>Edit Account</span>

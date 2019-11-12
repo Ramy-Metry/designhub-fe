@@ -220,6 +220,14 @@
   }
 }
 
-.rpt-container .rpt-bottom {
-  
+.rpt-textbox-container {
+  border: 1px solid white;
+  box-shadow: none;
+
+}
+
+.rpt-arrow {
+  border: 1px solid white;
+  border-bottom: none;
+  border-radius: 5px;
 }
