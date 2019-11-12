@@ -63,23 +63,33 @@ const TopBar = ({ activeUser, searchData, getSearch }) => {
             </Link>
 
     {/* Labs18 67-79*/}
-        <div>
+          <div   className = 'avatar-div'>
             <img className="profile-pic-thumb"
                 src={activeUser.avatar}
-                alt="user avatar" variant="danger" ref={target} onClick={() => setShow(!show)}/>
-        <div   className = 'avatar-div'>
+                alt="user avatar" 
+                variant="danger"
+                ref={target} 
+                onClick={() => setShow(!show)}/>
+        
                 <Tooltip
                       show={show}
                       arrowAlign="center"
-                      position="bottom"
-                      moveLeft = "-900px"
+                      position="bottom right"
+                      moveRight = "-100px"
                       lineSeparated
-                    >
-                          <span onClick={() => logout()} to={`/profile/${activeUser.id}/${activeUser.username}`}>Log Out</span>
-                          <span onClick={() => logout()} to={`/profile/${activeUser.id}/${activeUser.username}`}>Edit Account</span>
+                >
+                      <span onClick={() => logout()} to={`/profile/${activeUser.id}/${activeUser.username}`}>Log Out</span>
+                 
+                      
+          <span><NavLink
+          to="/settings"
+          className="links"
+          activeClassName="active-links"
+        >Settings</NavLink></span>
+        
                 </Tooltip>
                 </div>
-                </div>
+                
             <div className="dark-mode-switch" onClick={setLightMode}>
               {light ? (
                 <img alt="sun-mode switch" src={sunMode} />
