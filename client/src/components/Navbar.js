@@ -21,11 +21,33 @@ const Navbar = ({ activeUser }) => {
     getNotifyBool(activeUser.id);
   }, [activeUser.id]);
 
+  function hoverByClass(classname,hoverover="white",hoverout="#6d6d72"){
+        let items= document.getElementsByClassName(classname);
+        for(let i = 0;i < items.length;i++){
+          items[i].onmouseover = () => {
+            for(let j = 0;j < items.length;j++){
+              items[j].style.color=hoverover;
+            }
+          }
+          
+          items[i].onmouseout = () => {
+            for(let j = 0;j < items.length;j++){
+              items[j].style.color=hoverout;
+            }
+          }
+        }
+      }
+      hoverByClass("profile-nav-items");
+      hoverByClass("newproject-nav-items");
+      hoverByClass("explore-nav-items");
+      hoverByClass("inbox-nav-items");
+      hoverByClass("settings-nav-items");
+
   return (
     <nav>
       <div className="icon-links">
         <div className="navlinks">
-          <NavLink
+          <NavLink className = "profile-nav-items"
             to={`/profile/${activeUser.id}/${activeUser.username}`}
             activeClassName="active-links"
           >
@@ -36,19 +58,21 @@ const Navbar = ({ activeUser }) => {
         </div>
 
         <div className="navlinks">
-          <NavLink to="/create" activeClassName="active-links">
+          <NavLink className = "newproject-nav-items"
+          to="/create" activeClassName="active-links">
             <CreateNewProjectIcon />
           </NavLink>
         </div>
 
         <div className="navlinks">
-          <NavLink to="/explore" activeClassName="active-links">
+          <NavLink className = "explore-nav-items"
+          to="/explore" activeClassName="active-links">
             <MyProjectsIcon />
           </NavLink>
         </div>
 
         <div className="navlinks">
-          <NavLink
+          <NavLink className = "inbox-nav-items"
             to={`/notifications/${activeUser.id}/${activeUser.username}`}
             activeClassName="active-links"
           >
@@ -58,39 +82,39 @@ const Navbar = ({ activeUser }) => {
         </div>
 
         <div className="navlinks">
-          <NavLink to="/settings" activeClassName="active-links">
+          <NavLink className = "settings-nav-items"
+          to="/settings" activeClassName="active-links">
             <SettingsIcon />
           </NavLink>
         </div>
       </div>
       <div className="text-links">
-        <NavLink
+        <NavLink className = "links profile-nav-items"
           to={`/profile/${activeUser.id}/${activeUser.username}`}
-          className="links"
           activeClassName="active-links"
         >
           Profile
         </NavLink>
 
-        <NavLink to="/create" className="links" activeClassName="active-links">
+        <NavLink className = " links newproject-nav-items"
+        to="/create" activeClassName="active-links">
           New Project
         </NavLink>
 
-        <NavLink to="/explore" className="links" activeClassName="active-links">
+        <NavLink className = "links explore-nav-items"
+        to="/explore" activeClassName="active-links">
           Explore
         </NavLink>
 
-        <NavLink
+        <NavLink className = "links inbox-nav-items"
           to={`/notifications/${activeUser.id}/${activeUser.username}`}
-          className="links"
           activeClassName="active-links"
         >
           <span onClick={() => setBool(false)}>Notifications</span>
         </NavLink>
 
-        <NavLink
+        <NavLink className = "links settings-nav-items"
           to="/settings"
-          className="links"
           activeClassName="active-links"
         >
           Settings

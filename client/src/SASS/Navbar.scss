@@ -101,7 +101,7 @@ nav {
     }
 
     .active-links {
-      color: $white;
+      color: $white !important;
       @include themify($themes) {
         color: themed('text');
       }
