@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useAuth0 } from '../auth-wrapper.js';
 import Tooltip from 'react-power-tooltip';
+import BellIcon from 'react-bell-icon';
 
 import SampleLogo from './Icons/SampleLogo.js';
 import logo from '../ASSETS/logo.svg';
@@ -117,6 +118,7 @@ const TopBar = ({ history, activeUser, searchData, getSearch }) => {
                 </span>
               </Tooltip>
             </div>
+            <a href = {`/notifications/${activeUser.id}/${activeUser.username}`}><BellIcon className = 'bell' width='25' color='#7654FA' /></a>
           </div>
           <div className="dark-mode-switch" onClick={setLightMode}>
             {light ? (

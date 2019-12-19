@@ -9340,6 +9340,11 @@ react-app-polyfill@^1.0.2:
     regenerator-runtime "0.13.3"
     whatwg-fetch "3.0.0"
 
+react-bell-icon@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-bell-icon/-/react-bell-icon-1.0.1.tgz#f2594d9c34ca629a171f90d1e9381bb50522ef1a"
+  integrity sha512-WxePTEk46XYn1vUnTumLb2RSamdcialERyb2Euk4lrXfEQ59vOkpQaE+Uj6FWXTfAqD+f438XdWfFYccqlmDLg==
+
 react-calendar-heatmap@^1.8.1:
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/react-calendar-heatmap/-/react-calendar-heatmap-1.8.1.tgz#8370151f6cf7477d49cb3459596d6d046bdfc704"
