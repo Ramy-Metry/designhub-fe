@@ -37,16 +37,21 @@ const ProjectThumbnail = ({ project }) => {
                     <div className='project-flex'>
                         <img className='avatar' src={user.avatar} alt={user.firstName} />
                         <div className="project-middle">
-                            {project.name.length > 35 ? (
-                                <h1>{project.name.slice(0, 35)}...</h1>
+                            {project.name.length > 15 ? (
+                                <h1>{project.name.slice(0, 15)}...</h1>
                             ) : (
                                     <h1>{project.name}</h1>
                                 )}
-                            <h1 className='project-username'>{user.username}</h1>
+                            
+                            {user.username !== null && user.username.length > 15 ? (
+                                <h1>{user.username.slice(0, 15)}...</h1>
+                            ) : (
+                                    <h1 className = "project-username">{user.username}</h1>
+                                )}
                         </div>
-                        <h1 className="created">
-                            {moment(project.created_at).format('MMM DD, YYYY')}
-                        </h1>
+                        <div className="created">
+                            <h1>{moment(project.created_at).format('MM-DD-YY')}</h1>
+                        </div>
                     </div>
                 </div>
                 <img
